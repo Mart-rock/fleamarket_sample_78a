@@ -10,6 +10,11 @@ class ItemsController < ApplicationController
       @Items = Item.none
     end
   end
+
+  private
+  def item_params
+    params.require(:item).permit(:name, :image, :text).merge(user_id: current_user.id)
+  end
 end
 
 
