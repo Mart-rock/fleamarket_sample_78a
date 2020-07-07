@@ -23,6 +23,7 @@ Things you may want to cover:
 
 * ...
 
+
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -81,3 +82,4 @@ belongs_to_active_hash :postage_type
 belongs_to :brand
 belongs_to :seller, class_name: "User"
 belongs_to :buyer, class_name: "User"
+
