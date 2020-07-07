@@ -1,0 +1,27 @@
+.Header
+  .Header__main
+    .Header__main__top
+      %h1.icon
+        = link_to root_path,class: "icon__img" do
+          a
+      .Header__main__top__title
+        %h1.title FURIMA
+      .Header__main__top__search
+        = form_with url: search_items_path, local: true, method: :get,html: {class: "Header__main__top__search__form"} do |form|
+          = form.text_field :keyword, {placeholder: "キーワードから探す", class: "Header__main__top__search__form__input"}
+          = form.submit "検索", class: "Header__main__top__search__form__btn"
+    .Header__main__sub
+      %ul.Header__main__sub__top
+        %li.Header__main__sub__top__category
+          カテゴリー
+        %li.Header__main__sub__top__brand
+          ブランド
+      %ul.Header__main__sub__content
+        %li.Header__main__sub__top__content__login
+          ログイン
+        %li.Header__main__sub__top__content__new
+          新規登録
+            
+  
+      
+      
