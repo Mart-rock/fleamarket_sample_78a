@@ -79,7 +79,7 @@ belongs_to:user
 |------|----|-------|
 |title|string|null: false|
 |text|text|null: false|
-|fresh_status|string|null:false|
+|fresh_status|integer|null:false|
 |user_id|references|foreign_key: true|
 |sell_status|string|null: false|
 |price|integer|null: false|
