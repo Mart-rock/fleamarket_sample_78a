@@ -110,7 +110,7 @@ has_one :size
 |product_id|references|foreign_key: true|
 
 ### Association
-belongs_to :product, optional:true, dependent: :destroy
+belongs_to :product, optional:true
 
 ## Sizeテーブル
 |Column|Type|Options|
