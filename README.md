@@ -40,7 +40,7 @@ has_many :seller_trades, dependent: :destroy, class_name: "Trade", foreign_key: 
 ## Profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|foreign_key: true|
+|user_id|references|foreign_key: true, null: false|
 |avatar|string|
 |birthyear|integer|null: false|
 |birthmonth|integer|null: false|
@@ -139,7 +139,7 @@ belongs_to :smallcategory
 |name|string|null: false|
 
 ### Association
-has_many :bigcategories
+has_ancestry
 belongs_to :product, optional: true
 
 ## Bigcategoriesテーブル
