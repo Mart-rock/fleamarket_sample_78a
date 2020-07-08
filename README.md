@@ -139,7 +139,7 @@ belongs_to :smallcategory
 |name|string|null: false|
 
 ### Association
-has_ancestry
+has_many :bigcategories
 belongs_to :product, optional: true
 
 ## Bigcategoriesテーブル
