@@ -122,48 +122,15 @@ belongs_to :product
 has_many :smallcategories
 has_many :smallcategories_has_sizes
 
-## SmallcategoriesHasSizesテーブル
+## Categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|smallcategory_id|references|null: false|
-|size_id|references|null: false|
+|ancestry|string|
 
 ### Association
 belongs_to :size
-belongs_to :smallcategory
-
-## CategorieIndecesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### Association
-has_many :bigcategories
-belongs_to :product, optional: true
-
-## Bigcategoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|category_index_id|references|null: false|
-
-### Association
-belongs_to :category_index, optional: true
-belongs_to :product, optional: true
-has_many :smallcategories
-
-Smallcategoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|bigcategory_id|references|null: false|
-
-### Association
-belongs_to :bigcategory, optional: true
-belongs_to :product, optional: true
-has_many :sizes
-has_many :smallcategories_has_sizes
+belongs_to :items
 
 ## Tradesテーブル
 |Column|Type|Options|
