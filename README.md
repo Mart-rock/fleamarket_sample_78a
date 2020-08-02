@@ -25,16 +25,6 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-
-|name|string|null: false, add_index: true|
-|email|string|null: false, unique: true|
-|password|string|null: false|
-
-### Association
-- has_many :groups_users
-- has_many :groups, through: groups_users
-- has_many :messages
-
 |nickname|string|null: false|
 |email|string|null: false, default: ""|
 |encrypted_password|string|null: false, default: ""|
@@ -72,8 +62,8 @@ Things you may want to cover:
 |zipcode|integer|null: false|
 |prefecture_id(active_hash)|integer|null: false|
 |city|string|null: false|
-|block|string|null: false|
-|apartment|string|
+|address|string|null: false|
+|apartment|string|null: false|
 
 ### Association
 - belongs_to :user, optional: true
@@ -92,6 +82,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |category_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 |text|text|null: false|
 |condition|integer|null: false|

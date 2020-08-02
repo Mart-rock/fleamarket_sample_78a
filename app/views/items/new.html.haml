@@ -36,15 +36,17 @@
                   .inputform__body__upload__item
                     = form.text_area :text, size: "55x6", maxlength: "1000", class: "inputform__body__upload__text"
                 
-                  .inputform__category
-                    .inputform__header
-                      .inputform__header__title
-                        カテゴリー
-                      .inputform__header__hissu
-                        必須
-                    .inputform__body
-                      .inputform__body__upload
-                        = form.select :category_id, [["選択して下さい", 0],["レディース", 1],["メンズ", 2],["ベビー、キッズ", 3],["インテリア", 4]], class: "inputform__body__upload__select"
+                  .inputform
+                    .inputform__category
+                      .inputform__category__header
+                        .inputform__category__header__title
+                          カテゴリー
+                        .inputform__category__header__hissu
+                          必須
+                      .inputform__category__body
+                        .inputform__category__body__upload
+                          .item_serect_field
+                            =form.collection_select :category_id, @category_parent_array, :id, :name,{ include_blank: "選択してください"},class:"serect_field"
                     .inputform__header
                       .inputform__header__title
                         ブランド
@@ -78,7 +80,7 @@
                         必須
                     .inputform__body
                       .inputform__body__upload
-                        = form.collection_select :shipping_area, ShippingArea.all, :id, :name
+                        = form.collection_select :shipping_area_id, ShippingArea.all, :id, :name
                     .inputform__header
                       .inputform__header__title
                         発送までの日数

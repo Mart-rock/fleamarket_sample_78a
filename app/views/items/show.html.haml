@@ -9,22 +9,22 @@
         >
       .Page__head__home
         =link_to root_path,class: 'Mypage-btn' do
-          ベビー・キッズ
+          = @category_parent.name
       .Page__head__home
         >   
       .Page__head__home
         =link_to root_path,class: 'Mypage-btn' do
-          ベビー服（男の子用）〜95cm    
+          = @category_child.name   
       .Page__head__home
         >   
       .Page__head__home
         =link_to root_path,class: 'Mypage-btn' do
-          アウター
+          = @category_grandchild.name
       .Page__head__home
         >   
       .Page__head__home
         =link_to root_path,class: 'Mypage-btn' do
-          ee
+          = @item.name
 .ItemDetails
   .ItemDetails__show
     .ItemDetails__show__content
@@ -63,13 +63,13 @@
                   %td.ItemDetails__show__content__top__itemBox__table__text__tbody__content__name
                     .content
                       = link_to root_path,class: 'details-btn' do
-                        ベビー・キッズ
+                        = @category_parent.name
                     .content
                       = link_to root_path,class: 'details-btn' do
-                        ベビー服（男の子用）〜95cm
+                        = @category_child.name  
                     .content
                       = link_to root_path,class: 'details-btn' do
-                        アウター
+                        = @category_grandchild.name
                 %tr.ItemDetails__show__content__top__itemBox__table__text__tbody__brand
                   %th.ItemDetails__show__content__top__itemBox__table__text__tbody__brand__nameList
                     ブランド
