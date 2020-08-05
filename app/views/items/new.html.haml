@@ -47,22 +47,22 @@
                         .inputform__category__body__upload
                           .item_serect_field
                             =form.collection_select :category_id, @category_parent_array, :id, :name,{ include_blank: "選択してください"},class:"serect_field"
-                    .inputform__header
-                      .inputform__header__title
-                        ブランド
-                      .inputform__header__nini
-                        任意
-                    .inputform__body
-                      .inputform__body__upload
-                        = form.text_field :brand, class: "inputform__body__upload__text"
-                    .inputform__header
-                      .inputform__header__title
-                        商品の状態
-                      .inputform__header__hissu
-                        必須
-                    .inputform__body
-                      .inputform__body__upload
-                        = form.select :condition, [["選択して下さい", 0],["新品、未使用", 1],["目立った汚れ傷なし", 2],["傷や汚れ有り", 3],["全体的に状態が悪い", 4]], class: "inputform__body__upload__select"
+                      .inputform__header
+                        .inputform__header__title
+                          ブランド
+                        .inputform__header__nini
+                          任意
+                      .inputform__body
+                        .inputform__body__upload
+                          = form.text_field :brand, class: "inputform__body__upload__text"
+                      .inputform__header
+                        .inputform__header__title
+                          商品の状態
+                        .inputform__header__hissu
+                          必須
+                      .inputform__body
+                        .inputform__body__upload
+                          = form.select :condition, [["選択して下さい", 0],["新品、未使用", 1],["目立った汚れ傷なし", 2],["傷や汚れ有り", 3],["全体的に状態が悪い", 4]], class: "inputform__body__upload__select"
 
                   .inputform__deliver
                     .inputform__header

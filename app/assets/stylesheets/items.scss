@@ -7,7 +7,7 @@ $color: #f8f8f8;
   background-color: $color;
   height: 2500px;
   .inputform {
-    height: 224px;
+    height: 250px;
     width: 670px;
     padding: 30px 0 0 0px;
     margin: 0 0 0 700px;
@@ -50,7 +50,7 @@ $color: #f8f8f8;
         }
       }
       .inputform__product {
-        height: 400px;
+        height: 500px;
         width: 670px;
         padding: 30px 0 0 0;
         background-color: white;
@@ -71,6 +71,36 @@ $color: #f8f8f8;
           
         }
       } 
+    }
+        .inputform__category {
+          height: 450px;
+          width: 600px;
+          padding: 30px 0 0 70px;
+          background-color: white;
+          border: 1px solid;
+          border-color: #f8f8f8;
+          .inputform__category__header {
+            margin:20px 0 20px 0;
+            
+            display: flex;
+            font-size:15px;
+            font-weight: 600;
+            position: relative;
+          }
+          .inputform__category__header__title {
+            padding: 0 30px 0 0;
+          }
+          .inputform__category__header__hissu {
+            width: 8%;
+            background-color:red;
+            color: $color;
+            border-radius: 3px;
+            text-align: center;
+          }
+          .serect_field {
+            margin: 0 150px 0 0;
+          }
+        }
       
       select {
         height: 40px;
@@ -162,7 +192,7 @@ $color: #f8f8f8;
       }
     }
   }
-}    
+    
         
        
       

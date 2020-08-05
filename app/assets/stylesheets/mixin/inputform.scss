@@ -7,15 +7,7 @@
   border-color: #f8f8f8;
 }
 
-.inputform__category {
-  @include input;
-  margin: 138px 0 0 0;
-}
 
-.inputform__product {
-  @include input;
-  margin: 50px 0 0 0;
-}
 
 .inputform__deliver {
   @include input;
