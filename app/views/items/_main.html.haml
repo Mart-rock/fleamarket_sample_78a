@@ -87,7 +87,7 @@
             - @items.each do |item|
               = link_to item_path( item.id ),class: 'Main__pickUp__box__list__img__text__body' do
                 .img
-                  = image_tag item.item_images[0].image_url.url, :size =>'75x75' 
+                  = image_tag item.item_images[0].image_url.url, size: '75x75' 
                 %h3.Main__name
                   = item.name
                   .item__id
