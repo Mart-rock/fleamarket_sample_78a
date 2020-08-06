@@ -1,4 +1,5 @@
-$(document).on('turbolinks:load', function(){
+$(document).on( function(){
+  console.log('うんこ')
   $(function(){
    
     //プレビューのhtmlを定義
@@ -44,7 +45,7 @@ $(document).on('turbolinks:load', function(){
 
     // ラベルのwidth操作
     function setLabel() {
-      console.log('うんこ')
+      
       //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
       var prevContent = $('.label-content').prev();
       labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
