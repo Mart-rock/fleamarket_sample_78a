@@ -34,7 +34,7 @@ class ItemImagesController < ApplicationController
 
   private
   def image_params
-    params.require(:item_images).permit(:image_url)
+    params.require(:item_images).permit([images_attributes: [:image_url]])
   end
 
   def set_item_image
