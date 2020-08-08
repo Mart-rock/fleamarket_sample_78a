@@ -74,33 +74,28 @@
                   %th.ItemDetails__show__content__top__itemBox__table__text__tbody__brand__nameList
                     ブランド
                   %td.ItemDetails__show__content__top__itemBox__table__text__tbody__brand__name
-                    boy
-                %tr.ItemDetails__show__content__top__itemBox__table__text__tbody__size
-                  %th.ItemDetails__show__content__top__itemBox__table__text__tbody__size__nameList
-                    商品のサイズ
-                  %td.ItemDetails__show__content__top__itemBox__table__text__tbody__size__name
-                    100cm
+                    = @item.brand
                 %tr.ItemDetails__show__content__top__itemBox__table__text__tbody__old
                   %th.ItemDetails__show__content__top__itemBox__table__text__tbody__old__nameList
                     商品の状況
                   %td.ItemDetails__show__content__top__itemBox__table__text__tbody__old__name
-                    新品/未使用
+                    = @item.condition.name
                 %tr.ItemDetails__show__content__top__itemBox__table__text__tbody__postage
                   %th.ItemDetails__show__content__top__itemBox__table__text__tbody__postage__nameList
                     配送料の負担
                   %td.ItemDetails__show__content__top__itemBox__table__text__tbody__postage__name
-                    送料込み（出品者負担）
+                    = @item.shipping_charges.name
                 %tr.ItemDetails__show__content__top__itemBox__table__text__tbody__area
                   %th.ItemDetails__show__content__top__itemBox__table__text__tbody__area__nameList
                     発送元の地域
                   %td.ItemDetails__show__content__top__itemBox__table__text__tbody__area__name
                     =link_to root_path,class: 'details-btn' do
-                      北海道
+                      = @item.shipping_area.name
                 %tr.ItemDetails__show__content__top__itemBox__table__text__tbody__standard
                   %th.ItemDetails__show__content__top__itemBox__table__text__tbody__standard__nameList
                     発送日の目安
                   %td.ItemDetails__show__content__top__itemBox__table__text__tbody__standard__name  
-                    1-2日で発送
+                    = @item.days_until_delivery.name
       %ul.ItemDetails__show__content__links
         %li.ItemDetails__show__content__links__before
           = link_to root_path,class: 'details-btn' do
