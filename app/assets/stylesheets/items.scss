@@ -59,7 +59,6 @@ $color: #f8f8f8;
           border-color: #f8f8f8;
           .inputform__category__header {
             margin:20px 0 20px 0;
-            
             display: flex;
             font-size:15px;
             font-weight: 600;
@@ -79,7 +78,6 @@ $color: #f8f8f8;
             margin: 0 150px 0 0;
           }
         }
-        
         select {
         height: 40px;
         width: 500px;
@@ -113,7 +111,6 @@ $color: #f8f8f8;
       input[type="submit"]:active {
         box-shadow: none;
       }
-      
       .inputform__header {
         margin:20px 0 20px 0;
         display: flex;
@@ -138,7 +135,6 @@ $color: #f8f8f8;
           text-align: center;
         } 
       }
-      
       .inputform__price {
         height: 200px;
         width: 600px;
@@ -160,16 +156,11 @@ $color: #f8f8f8;
       display: none;
     }
   }
-  //投稿欄以外のCSSは省略します
-  
-  //image投稿欄のCSS
   .post__drop__box__container{
     display: block;
     margin: 16px auto 0;
     display: flex;
     flex-wrap: wrap;
-    
-    //プレビュー表示欄のCSS
     .prev-content {
       display: flex;
       .preview-box {
@@ -187,7 +178,6 @@ $color: #f8f8f8;
       .lower-box {
         display: flex;
         text-align: center;
-        
         .delete-box {
           color: #00b0ff;
           width: 100%;
@@ -200,9 +190,6 @@ $color: #f8f8f8;
       }
     }
   }
-          
-  
-  //投稿クリックエリアのCSS
   .label-content{
     margin-bottom: 10px;
     width: 620px;
@@ -214,7 +201,6 @@ $color: #f8f8f8;
       width: 100%;
       height: 162px;
       margin: 0 0 30px 23px;
-
       cursor: pointer;
       &__text-visible {
         position: absolute;
@@ -233,9 +219,6 @@ $color: #f8f8f8;
       }
     }
   }
-
-  
-      
   .hidden-field {
     display: none;
   }
@@ -248,7 +231,6 @@ $color: #f8f8f8;
 .post__drop__box__container{
   margin: 0 0 0 10px;
 }
-
 .inputform__product {
   height: 500px;
   width: 670px;
@@ -256,7 +238,6 @@ $color: #f8f8f8;
   background-color: white;
   border: 1px solid;
   border-color: #f8f8f8;
-  
   .inputform__header__item {
     display: flex;
     padding: 0 0 0 50px;
@@ -264,17 +245,8 @@ $color: #f8f8f8;
     .inputform__header__title__item {
       margin: 0 30px 0 0;
     }
-  
   }
   .inputform__body__upload {
     margin: 0 0 30px 0;
-    
   }
 } 
-
-
-
-
-
-
-
