@@ -15,13 +15,12 @@
           %pre.label-box__text-visible クリックして画像をアップロード
       .hidden-content
       = form_with model: @item, local: true do |f|
-        = f.fields_for :item_images do |i|
+        = f.fields_for :item_images, multiple: true do |i|
           = i.file_field :image_url, class: "hidden-field", id: "item_images_attributes_0_image"
-          %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
-          %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
-          %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
-          %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
-          
+          %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][image_url]", id: "item_images_attributes_1_image" }
+          %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][image_url]", id: "item_images_attributes_2_image" }
+          %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][image_url]", id: "item_images_attributes_3_image" }
+          %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][image_url]", id: "item_images_attributes_4_image" }
           
           .inputform__product
             .inputform__header__item
@@ -31,7 +30,7 @@
                 必須
             .inputform__body
               .inputform__body__upload__item
-                = f.text_field :name, class: "inputform__body__upload__text"
+                = f.text_field :name, class: "inputform__body__upload__text",placeholder: "商品名（必須 40文字まで)"
                 .inputform__header__item
                   .inputform__header__title__item
                     商品の説明
@@ -39,9 +38,8 @@
                     必須
                 .inputform__body
                   .inputform__body__upload__item
-                    = f.text_area :text, size: "55x6", maxlength: "1000", class: "inputform__body__upload__text"
+                    = f.text_area :text, size: "55x6", maxlength: "1000", class: "inputform__body__upload__text", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
                 
-                  
                     .inputform__category
                       .inputform__category__header
                         .inputform__category__header__title
@@ -59,7 +57,7 @@
                           任意
                       .inputform__body
                         .inputform__body__upload
-                          = f.text_field :brand, class: "inputform__body__upload__text"
+                          = f.text_field :brand, class: "inputform__body__upload__text", placeholder: "例）Gibson"
                       .inputform__header
                         .inputform__header__title
                           商品の状態
@@ -98,13 +96,13 @@
                   .inputform__price
                     .inputform__header
                       .inputform__header__title
-                        販売価格
+                        販売価格（¥50~9,999,999)
                       .inputform__header__hissu
                         必須
                     .inputform__body
                       .inputform__body__upload
                         ¥
-                        = f.number_field :price, class: "inputform__body__upload__number"
+                        = f.number_field :price, class: "inputform__body__upload__number", placeholder: "0"
                         
                   .inputform__submit
                     .inputform__body

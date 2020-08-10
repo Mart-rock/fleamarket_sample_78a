@@ -4,14 +4,14 @@ class ItemsController < ApplicationController
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    @items = Item.includes(:item_images).order('created_at DESC')
+    @items = Item.includes(:item_images).limit(5).order('created_at DESC')
     @item_lodes = Item.includes(:item_images)
     @item_purchase = ItemPurchase.find_by(item_id: params[:id])
   end
 
   def new
     @item = Item.new
-    @item.item_images.new
+    @item.item_images.build
     @category_parent_array = Category.where(ancestry: nil)
   end
 

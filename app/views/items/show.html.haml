@@ -34,11 +34,11 @@
           .ItemDetails__show__content__top__itemBox__body
             %ul.ItemDetails__show__content__top__itemBox__body__item
               %li.ItemDetails__show__content__top__itemBox__body__item__img
-                = image_tag @item.item_images[0].image_url.url
+                - @item.item_images.each do |i|
+                  = image_tag i.image_url.url, size: "200x130"
               %il.ItemDetails__show__content__top__itemBox__body__item__list
                 %ul.ItemDetails__show__content__top__itemBox__body__item__list__items
                   %li.ItemDetails__show__content__top__itemBox__body__item__list__items__img
-                 
                   %li.ItemDetails__show__content__top__itemBox__body__item__list__items__img
                  
           .ItemDetails__show__content__top__itemBox__price
