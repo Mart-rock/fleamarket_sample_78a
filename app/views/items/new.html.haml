@@ -16,12 +16,12 @@
       .hidden-content
       = form_with model: @item, local: true do |f|
         = f.fields_for :item_images, multiple: true do |i|
-          = i.file_field :image_url, class: "hidden-field", id: "item_images_attributes_0_image"
-          %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][image_url]", id: "item_images_attributes_1_image" }
-          %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][image_url]", id: "item_images_attributes_2_image" }
-          %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][image_url]", id: "item_images_attributes_3_image" }
-          %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][image_url]", id: "item_images_attributes_4_image" }
-          
+          = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][0][image_url]", id: "item_images_attributes_0_image"
+          = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][1][image_url]", id: "item_images_attributes_1_image"
+          = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][2][image_url]", id: "item_images_attributes_2_image"
+          = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][3][image_url]", id: "item_images_attributes_3_image"
+          = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][4][image_url]", id: "item_images_attributes_4_image"
+
           .inputform__product
             .inputform__header__item
               .inputform__header__title__item
