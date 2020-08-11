@@ -16,98 +16,94 @@
       .hidden-content
       = form_with model: @item, local: true do |f|
         = f.fields_for :item_images, multiple: true do |i|
-          = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][0][image_url]", id: "item_images_attributes_0_image"
-          = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][1][image_url]", id: "item_images_attributes_1_image"
-          = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][2][image_url]", id: "item_images_attributes_2_image"
-          = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][3][image_url]", id: "item_images_attributes_3_image"
-          = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][4][image_url]", id: "item_images_attributes_4_image"
+          = i.file_field :image_url, class: "hidden-field"
+          
+        .inputform__product
+          .inputform__header__item
+            .inputform__header__title__item
+              商品名
+            .inputform__header__hissu
+              必須
+          .inputform__body
+            .inputform__body__upload__item
+              = f.text_field :name, class: "inputform__body__upload__text",placeholder: "商品名（必須 40文字まで)"
+              .inputform__header__item
+                .inputform__header__title__item
+                  商品の説明
+                .inputform__header__hissu
+                  必須
+              .inputform__body
+                .inputform__body__upload__item
+                  = f.text_area :text, size: "55x6", maxlength: "1000", class: "inputform__body__upload__text", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+              
+                  .inputform__category
+                    .inputform__category__header
+                      .inputform__category__header__title
+                        カテゴリー
+                      .inputform__category__header__hissu
+                        必須
+                    .inputform__category__body
+                      .inputform__category__body__upload
+                        .item_serect_field
+                          =f.collection_select :category_id, @category_parent_array, :id, :name,{ include_blank: "選択してください"},class:"serect_field"
+                    .inputform__header
+                      .inputform__header__title
+                        ブランド
+                      .inputform__header__nini
+                        任意
+                    .inputform__body
+                      .inputform__body__upload
+                        = f.text_field :brand, class: "inputform__body__upload__text", placeholder: "例）Gibson"
+                    .inputform__header
+                      .inputform__header__title
+                        商品の状態
+                      .inputform__header__hissu
+                        必須
+                    .inputform__body
+                      .inputform__body__upload
+                        = f.collection_select :condition_id, Condition.all, :id, :name, class: "inputform__body__upload__select"
 
-          .inputform__product
-            .inputform__header__item
-              .inputform__header__title__item
-                商品名
-              .inputform__header__hissu
-                必須
-            .inputform__body
-              .inputform__body__upload__item
-                = f.text_field :name, class: "inputform__body__upload__text",placeholder: "商品名（必須 40文字まで)"
-                .inputform__header__item
-                  .inputform__header__title__item
-                    商品の説明
-                  .inputform__header__hissu
-                    必須
-                .inputform__body
-                  .inputform__body__upload__item
-                    = f.text_area :text, size: "55x6", maxlength: "1000", class: "inputform__body__upload__text", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-                
-                    .inputform__category
-                      .inputform__category__header
-                        .inputform__category__header__title
-                          カテゴリー
-                        .inputform__category__header__hissu
-                          必須
-                      .inputform__category__body
-                        .inputform__category__body__upload
-                          .item_serect_field
-                            =f.collection_select :category_id, @category_parent_array, :id, :name,{ include_blank: "選択してください"},class:"serect_field"
-                      .inputform__header
-                        .inputform__header__title
-                          ブランド
-                        .inputform__header__nini
-                          任意
-                      .inputform__body
-                        .inputform__body__upload
-                          = f.text_field :brand, class: "inputform__body__upload__text", placeholder: "例）Gibson"
-                      .inputform__header
-                        .inputform__header__title
-                          商品の状態
-                        .inputform__header__hissu
-                          必須
-                      .inputform__body
-                        .inputform__body__upload
-                          = f.collection_select :condition_id, Condition.all, :id, :name, class: "inputform__body__upload__select"
+                .inputform__deliver
+                  .inputform__header
+                    .inputform__header__title
+                      配送料の負担
+                    .inputform__header__hissu
+                      必須
+                  .inputform__body
+                    .inputform__body__upload
+                      = f.collection_select :shipping_charges_id, ShippingCharges.all, :id, :name, class: "inputform__body__upload__select"
+                  .inputform__header
+                    .inputform__header__title
+                      発送元の地域
+                    .inputform__header__hissu
+                      必須
+                  .inputform__body
+                    .inputform__body__upload
+                      = f.collection_select :shipping_area_id, ShippingArea.all, :id, :name
+                  .inputform__header
+                    .inputform__header__title
+                      発送までの日数
+                    .inputform__header__hissu
+                      必須
+                  .inputform__body
+                    .inputform__body__upload
+                      = f.collection_select :days_until_delivery_id, DaysUntilDelivery.all, :id, :name, class: "inputform__body__upload__select"
 
-                  .inputform__deliver
-                    .inputform__header
-                      .inputform__header__title
-                        配送料の負担
-                      .inputform__header__hissu
-                        必須
-                    .inputform__body
-                      .inputform__body__upload
-                        = f.collection_select :shipping_charges_id, ShippingCharges.all, :id, :name, class: "inputform__body__upload__select"
-                    .inputform__header
-                      .inputform__header__title
-                        発送元の地域
-                      .inputform__header__hissu
-                        必須
-                    .inputform__body
-                      .inputform__body__upload
-                        = f.collection_select :shipping_area_id, ShippingArea.all, :id, :name
-                    .inputform__header
-                      .inputform__header__title
-                        発送までの日数
-                      .inputform__header__hissu
-                        必須
-                    .inputform__body
-                      .inputform__body__upload
-                        = f.collection_select :days_until_delivery_id, DaysUntilDelivery.all, :id, :name, class: "inputform__body__upload__select"
-
-                  .inputform__price
-                    .inputform__header
-                      .inputform__header__title
-                        販売価格（¥50~9,999,999)
-                      .inputform__header__hissu
-                        必須
-                    .inputform__body
-                      .inputform__body__upload
-                        ¥
-                        = f.number_field :price, class: "inputform__body__upload__number", placeholder: "0"
-                        
-                  .inputform__submit
-                    .inputform__body
-                      .inputform__body__upload
-                        = f.submit value: "出品する", id: "inputform__body__upload__submit"
+                .inputform__price
+                  .inputform__header
+                    .inputform__header__title
+                      販売価格（¥50~9,999,999)
+                    .inputform__header__hissu
+                      必須
+                  .inputform__body
+                    .inputform__body__upload
+                      ¥
+                      = f.number_field :price, class: "inputform__body__upload__number", placeholder: "0"
+                      
+                .inputform__submit
+                  .inputform__body
+                    .inputform__body__upload
+                      = f.submit value: "出品する", id: "inputform__body__upload__submit"
                         
 %body
   = render 'items/footer'
