@@ -16,7 +16,7 @@
       .hidden-content
         = form_with model: @item, local: true do |f|
           .hidden-content-file
-            = f.fields_for :item_images, @item.item_images.build, multiple: true do |i|
+            = f.fields_for :item_images, @item.item_images.build, multiple: true, required: true do |i|
               .hidden-content-file-fields
               = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][0][image_url]", id: "item_images_attributes_0_image"
               = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][1][image_url]", id: "item_images_attributes_1_image"
