@@ -57,6 +57,16 @@
                     出品者
                   %td.ItemDetails__show__content__top__itemBox__table__text__tbody__buyUser__name 
                     = @item.user.nickname
+                %tr.ItemDetails__show__content__top__itemBox__table__text__tbody__brand
+                  %th.ItemDetails__show__content__top__itemBox__table__text__tbody__brand__nameList
+                    商品名
+                  %td.ItemDetails__show__content__top__itemBox__table__text__tbody__brand__name
+                    = @item.name
+                %tr.ItemDetails__show__content__top__itemBox__table__text__tbody__brand
+                  %th.ItemDetails__show__content__top__itemBox__table__text__tbody__brand__nameList
+                    商品の説明
+                  %td.ItemDetails__show__content__top__itemBox__table__text__tbody__brand__name
+                    = @item.text
                 %tr.ItemDetails__show__content__top__itemBox__table__text__tbody__content
                   %th.ItemDetails__show__content__top__itemBox__table__text__tbody__content__nameList
                     カテゴリー
