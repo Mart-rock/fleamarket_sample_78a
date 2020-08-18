@@ -11,19 +11,19 @@
     .post__drop__box__container
       .prev-content
       .label-content
-        %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
-          %pre.label-box__text-visible クリックして画像をアップロード
-      .hidden-content
+      %label{for: 'upload-image', class: 'label-content'}
+        %pre.label-box__text-visible クリックして画像をアップロードできます
         = form_with model: @item, local: true do |f|
-          .hidden-content-file
-            = f.fields_for :item_images, @item.item_images.build, multiple: true do |i|
-              .hidden-content-file-fields
-              = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][0][image_url]", id: "item_images_attributes_0_image"
-              = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][1][image_url]", id: "item_images_attributes_1_image"
-              = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][2][image_url]", id: "item_images_attributes_2_image"
-              = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][3][image_url]", id: "item_images_attributes_3_image"
-              = i.file_field :image_url, class: "hidden-field", name: "item[item_images_attributes][4][image_url]", id: "item_images_attributes_4_image"
-          
+          = f.fields_for :item_images, @item.item_images.build do |image|
+            = image.file_field :image_url, multiple: true, name: "item_images[image_url][]", id: "upload-image", class: "upload-image"
+            .preview-box2
+              - @item.item_images.each do |item_image|
+                .image-box
+                  = image_tag item_image.image_url.url, id: "upload-image", class: "upload_image"
+                  .preview-box__select
+                    = link_to item_image_path(item_image.id), method: :delete, data: { turbolinks: false } do
+                      %p 削除
+      
           .inputform__product
             .inputform__header__item
               .inputform__header__title__item
@@ -113,3 +113,8 @@
                         
 %body
   = render 'items/footer'
+             
+          
+              
+            
+              
