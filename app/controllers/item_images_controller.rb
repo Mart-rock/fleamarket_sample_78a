@@ -3,30 +3,25 @@ class ItemImagesController < ApplicationController
 
 
   def new
-    @item_image = Item_image.new
+    @item_image = ItemImage.new
   end
 
   def create
-    @item_image = Item_image.create(image_params)
+    @item_image = ItemImage.create(params)
   end
 
   def edit
+    @item_image = ItemImage.find(params[:id])
   end
 
   def update
-    if @item_image.update(image_params)
-      render :edit unless @item_image.update(image_params)
-    else
-      render :edit
-    end
+    @item_image = ItemImage.find(params[:id])
+    @item_image.update(params)
   end
 
   def destroy
-    if @item_image.destroy
-      render :edit unless @item_image.update(image_params)
-    else
-      render :edit
-    end
+    @item_image = ItemImage.find(params[:id])
+    @item_image.destroy
   end
 
   def show
@@ -34,10 +29,10 @@ class ItemImagesController < ApplicationController
 
   private
   def image_params
-    params.require(:item_images).permit([images_attributes: [:image_url]])
+    params.require(:item_images).permit([images_attributes: [:image_url, :_destroy, :id]])
   end
 
   def set_item_image
-    @item_image = Item_image.find(params[:id])
+    @item_image = ItemImage.find(params[:id])
   end
 end
