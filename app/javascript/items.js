@@ -1,7 +1,7 @@
 $(function(){
-   
   //プレビューのhtmlを定義
   function buildHTML(count) {
+    
     var html = `<div class="preview-box" id="preview-box__${count}">
                   <div class="upper-box">
                     <img src="" alt="preview">
@@ -17,7 +17,6 @@ $(function(){
                 </div>`
     return html;
   }
-
   // 投稿編集時
   //items/:i/editページへリンクした際のアクション=======================================
   if (window.location.href.match(/\/items\/\d+\/edit/)){
@@ -38,9 +37,37 @@ $(function(){
     if (count == 5) {
       $('.label-content').hide();
     }
+    $('p').click(function() {
+     $('.image-box').remove()
+     if ($(`#item_images_attributes_${id}__destroy`).length == 0) {
+      //フォームの中身を削除 
+      $(`#item_images_attributes_${id}_image`).val("");
+      var count = $('.image-box').length;
+      
+      
+      
+      
+      
+    } else {
+
+      //投稿編集時
+      $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
+      //5個めが消されたらラベルを表示
+      
+      
+
+      //ラベルのwidth操作
+      
+      //ラベルのidとforの値を変更
+      //削除したプレビューのidによって、ラベルのidを変更する
+      if(id < 5){
+        $('.image-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      }
+    }
+    });
   }
   //=============================================================================
-
+  
   // ラベルのwidth操作
   function setLabel() {
     
@@ -49,7 +76,7 @@ $(function(){
     labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
     $('.label-content').css('width', labelWidth);
   }
-
+  
   // プレビューの追加
   $(document).on('change', '.hidden-field', function() {
     setLabel();
@@ -80,13 +107,13 @@ $(function(){
       if (count == 5) { 
         $('.label-content').hide();
       }
-
+      
       //プレビュー削除したフィールドにdestroy用のチェックボックスがあった場合、チェックを外す=============
       if ($(`#item_images_attributes_${id}__destroy`)){
         $(`#item_images_attributes_${id}__destroy`).prop('checked',false);
       } 
       //=============================================================================
-
+      
       //ラベルのwidth操作
       setLabel();
       //ラベルのidとforの値を変更
@@ -95,6 +122,7 @@ $(function(){
       }
     }
   });
+  
 
   // 画像の削除
   $(document).on('click', '.delete-box', function() {
@@ -102,7 +130,8 @@ $(function(){
     setLabel(count);
     var id = $(this).attr('id').replace(/[^0-9]/g, '');
     $(`#preview-box__${id}`).remove();
-
+    
+    
     //新規登録時と編集時の場合分け==========================================================
 
     //新規投稿時
