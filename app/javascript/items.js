@@ -43,22 +43,9 @@ $(function(){
       //フォームの中身を削除 
       $(`#item_images_attributes_${id}_image`).val("");
       var count = $('.image-box').length;
-      
-      
-      
-      
-      
     } else {
-
       //投稿編集時
       $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
-      //5個めが消されたらラベルを表示
-      
-      
-
-      //ラベルのwidth操作
-      
-      //ラベルのidとforの値を変更
       //削除したプレビューのidによって、ラベルのidを変更する
       if(id < 5){
         $('.image-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
@@ -66,6 +53,7 @@ $(function(){
     }
     });
   }
+
   //=============================================================================
   
   // ラベルのwidth操作
@@ -169,4 +157,3 @@ $(function(){
     //=============================================================================
   });
 });
-
