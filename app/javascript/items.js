@@ -38,7 +38,7 @@ $(function(){
       $('.label-content').hide();
     }
     $('p').click(function() {
-     $('.image-box').remove()
+     $('.image-tag').remove()
      if ($(`#item_images_attributes_${id}__destroy`).length == 0) {
       //フォームの中身を削除 
       $(`#item_images_attributes_${id}_image`).val("");
