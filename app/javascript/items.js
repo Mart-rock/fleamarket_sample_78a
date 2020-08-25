@@ -27,31 +27,26 @@ $(function(){
     //プレビューにidを追加
     $('.preview-box').each(function(index, box){
       $(box).attr('id', `preview-box__${index}`);
-    })
+    });
+    
     //削除ボタンにidを追加
     $('.delete-box').each(function(index, box){
       $(box).attr('id', `delete_btn_${index}`);
-    })
-    var count = $('.preview-box').length;
-    //プレビューが5あるときは、投稿ボックスを消しておく
-    if (count == 5) {
-      $('.label-content').hide();
-    }
-    $('p').click(function() {
-     $('.image-tag').remove()
-     if ($(`#item_images_attributes_${id}__destroy`).length == 0) {
-      //フォームの中身を削除 
-      $(`#item_images_attributes_${id}_image`).val("");
-      var count = $('.image-box').length;
-    } else {
-      //投稿編集時
-      $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
-      //削除したプレビューのidによって、ラベルのidを変更する
-      if(id < 5){
-        $('.image-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      var count = $('.preview-box').length;
+      //プレビューが5あるときは、投稿ボックスを消しておく
+      if (count == 5) {
+        $('.label-content').hide();
       }
-    }
     });
+    
+    $('.preview-box').click(function(){
+      var id = $(this).attr('id');
+    });
+
+    $('.delete-box').on('click', function(){
+      $(this).parent().parent().remove();
+    });
+    
   }
 
   //=============================================================================
