@@ -27,6 +27,9 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @category_parent_array = Category.where(ancestry: nil)
+    @grandchild = Category.find(@item.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
     @item.item_images.build
   end
 
