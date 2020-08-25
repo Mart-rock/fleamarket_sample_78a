@@ -64,7 +64,11 @@
                       .inputform__category__body
                         .inputform__category__body__upload
                           .item_serect_field
-                            =f.collection_select :category_id, @category_parent_array, :id, :name,{ include_blank: "選択してください"},class:"serect_field"
+                            =f.collection_select :category_id, Category.where(ancestry: nil).limit(13), :id, :name,{ include_blank: "選択してください", selected: @parent.id },class:"serect_field"
+                          .item_serect_field-child
+                            =f.collection_select :category_id, Category.where(ancestry: "#{@parent.id}"), :id, :name,{ include_blank: "----", selected: @child.id }, class:"serect_field", id: 'children_wrapper'
+                          .item_serect_field-grandchild
+                            =f.collection_select :category_id, Category.where(ancestry: "#{@parent.id}/#{@child.id}"), :id, :name,{ include_blank: "----", selected: @grandchild.id }, class:"serect_field", id: 'grandchildren_wrapper'
                       .inputform__header
                         .inputform__header__title
                           ブランド
